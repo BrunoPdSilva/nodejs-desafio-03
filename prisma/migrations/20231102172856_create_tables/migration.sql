@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "org" (
+CREATE TABLE "organization" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
@@ -27,19 +27,19 @@ CREATE TABLE "pets" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "org_id_key" ON "org"("id");
+CREATE UNIQUE INDEX "organization_id_key" ON "organization"("id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "org_name_key" ON "org"("name");
+CREATE UNIQUE INDEX "organization_name_key" ON "organization"("name");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "org_email_key" ON "org"("email");
+CREATE UNIQUE INDEX "organization_email_key" ON "organization"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "org_contact_key" ON "org"("contact");
+CREATE UNIQUE INDEX "organization_contact_key" ON "organization"("contact");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "pets_id_key" ON "pets"("id");
 
 -- AddForeignKey
-ALTER TABLE "pets" ADD CONSTRAINT "pets_orgId_fkey" FOREIGN KEY ("orgId") REFERENCES "org"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "pets" ADD CONSTRAINT "pets_orgId_fkey" FOREIGN KEY ("orgId") REFERENCES "organization"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
