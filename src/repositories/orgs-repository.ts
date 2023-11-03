@@ -2,5 +2,6 @@ import { Prisma, Org } from "@prisma/client"
 
 export type ORGsRepository = {
   register(data: Prisma.OrgCreateInput): Promise<Org>
-  findOrgByNameOrEmail(name: string, email: string): Promise<Org | null>
+  findOrgByName(name: string): Promise<Org | null>
+  findOrgByEmail(email: string): Promise<Org | null>
 }

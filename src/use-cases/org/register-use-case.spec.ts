@@ -2,7 +2,10 @@ import { describe, it, expect, beforeEach } from "vitest"
 import { InMemoryORGsRepository } from "@/repositories/in-memory.ts/in-memory-orgs-repository"
 import { ORGsRepository } from "@/repositories/orgs-repository"
 import { RegisterUseCase } from "./register-use-case"
-import { OrgAlreadyExistsError } from "../errors"
+import {
+  OrgWithSameEmailAlreadyExistsError,
+  OrgWithSameNameAlreadyExistsError,
+} from "../errors"
 
 describe("Register ORG - [Unit]", () => {
   let orgsRepository: ORGsRepository
@@ -56,7 +59,7 @@ describe("Register ORG - [Unit]", () => {
         street: "Rua da Fundação",
         zipcode: "18078600",
       })
-    ).rejects.toBeInstanceOf(OrgAlreadyExistsError)
+    ).rejects.toBeInstanceOf(OrgWithSameNameAlreadyExistsError)
   })
 
   it("should trigger an error if a ORG with the same email already exists", async () => {
@@ -84,6 +87,6 @@ describe("Register ORG - [Unit]", () => {
         street: "Rua da Fundação",
         zipcode: "18078600",
       })
-    ).rejects.toBeInstanceOf(OrgAlreadyExistsError)
+    ).rejects.toBeInstanceOf(OrgWithSameEmailAlreadyExistsError)
   })
 })

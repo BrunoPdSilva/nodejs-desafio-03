@@ -2,7 +2,7 @@
 
 [X] Deve ser possível se cadastrar como uma ORG
 
-[-] Deve ser possível realizar login como uma ORG
+[X] Deve ser possível realizar login como uma ORG
 
 [-] Deve ser possível cadastrar um pet
 
