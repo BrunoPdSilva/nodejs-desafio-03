@@ -1,9 +1,9 @@
 import { PetsRepository } from "@/repositories/pets-repository"
 import { describe, it, expect, beforeEach } from "vitest"
 import { RegisterPetUseCase } from "./register-pet-use-case"
-import { InMemoryPetsRepository } from "@/repositories/in-memory.ts/in-memory-pets-repository"
+import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets-repository"
 import { ORGsRepository } from "@/repositories/orgs-repository"
-import { InMemoryORGsRepository } from "@/repositories/in-memory.ts/in-memory-orgs-repository"
+import { InMemoryORGsRepository } from "@/repositories/in-memory/in-memory-orgs-repository"
 import { OrgNotFoundError } from "../errors"
 
 describe("Register Pet [Unit]", () => {

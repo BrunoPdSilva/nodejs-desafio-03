@@ -1,7 +1,7 @@
 import { PetsRepository } from "@/repositories/pets-repository"
 import { describe, it, expect, beforeEach } from "vitest"
 import { PetDetailsUseCase } from "./pet-details-use-case"
-import { InMemoryPetsRepository } from "@/repositories/in-memory.ts/in-memory-pets-repository"
+import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets-repository"
 import { PetNotFoundError } from "../errors"
 
 describe("Pet Details [Unit]", () => {

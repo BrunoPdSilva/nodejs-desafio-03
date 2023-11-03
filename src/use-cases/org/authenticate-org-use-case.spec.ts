@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from "vitest"
-import { InMemoryORGsRepository } from "@/repositories/in-memory.ts/in-memory-orgs-repository"
+import { InMemoryORGsRepository } from "@/repositories/in-memory/in-memory-orgs-repository"
 import { ORGsRepository } from "@/repositories/orgs-repository"
 import { AuthenticateOrgUseCase } from "./authenticate-org-use-case"
 import { InvalidCredentialsError } from "../errors"
