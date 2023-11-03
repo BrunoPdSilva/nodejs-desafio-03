@@ -4,9 +4,9 @@
 
 [X] Deve ser possível realizar login como uma ORG
 
-[-] Deve ser possível cadastrar um pet
+[X] Deve ser possível cadastrar um pet
 
-[-] Deve ser possível visualizar detalhes de um pet para adoção
+[X] Deve ser possível visualizar detalhes de um pet para adoção
 
 [-] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade
 
@@ -14,15 +14,15 @@
 
 ### Regras de negócio
 
-[-] Uma ORG precisa ter um endereço e um número de WhatsApp
+[X] Uma ORG precisa ter um endereço e um número de WhatsApp
 
 [-] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
 
-[-] Um pet deve estar ligado a uma ORG
+[X] Um pet deve estar ligado a uma ORG
 
 [-] Para listar os pets, obrigatoriamente precisamos informar a cidade
 
-[-] O usuário que quer adotar, entrará em contato com a ORG via WhatsApp
+[X] O usuário que quer adotar, entrará em contato com a ORG via WhatsApp
 
 [-] Todos os filtros, além da cidade, são opcionais
 

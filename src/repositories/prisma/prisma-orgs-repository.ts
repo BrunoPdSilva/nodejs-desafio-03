@@ -19,4 +19,10 @@ export class PrismaORGsRepository implements ORGsRepository {
 
     return org
   }
+
+  async findOrgById(orgId: string): Promise<Org | null> {
+    const org = await prisma.org.findFirst({ where: { id: orgId } })
+
+    return org
+  }
 }

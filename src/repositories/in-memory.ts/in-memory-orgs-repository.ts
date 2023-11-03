@@ -6,7 +6,7 @@ export class InMemoryORGsRepository implements ORGsRepository {
   public orgs: Org[] = []
 
   async register(data: Prisma.OrgCreateInput): Promise<Org> {
-    const org: Org = { ...data, id: randomUUID() }
+    const org: Org = { ...data, id: data.id ?? randomUUID() }
 
     this.orgs.push(org)
 
@@ -20,6 +20,11 @@ export class InMemoryORGsRepository implements ORGsRepository {
 
   async findOrgByEmail(email: string) {
     const org = this.orgs.find(org => org.email === email)
+    return org ?? null
+  }
+
+  async findOrgById(orgId: string) {
+    const org = this.orgs.find(org => org.id === orgId)
     return org ?? null
   }
 }

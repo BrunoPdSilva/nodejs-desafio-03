@@ -1,17 +1,17 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { InMemoryORGsRepository } from "@/repositories/in-memory.ts/in-memory-orgs-repository"
 import { ORGsRepository } from "@/repositories/orgs-repository"
-import { AuthenticateUseCase } from "./authenticate-use-case"
+import { AuthenticateOrgUseCase } from "./authenticate-org-use-case"
 import { InvalidCredentialsError } from "../errors"
 import { hash } from "bcryptjs"
 
 describe("Authenticate ORG - [Unit]", () => {
   let orgsRepository: ORGsRepository
-  let useCase: AuthenticateUseCase
+  let useCase: AuthenticateOrgUseCase
 
   beforeEach(() => {
     orgsRepository = new InMemoryORGsRepository()
-    useCase = new AuthenticateUseCase(orgsRepository)
+    useCase = new AuthenticateOrgUseCase(orgsRepository)
   })
 
   it("should be able to authenticate as an org.", async () => {

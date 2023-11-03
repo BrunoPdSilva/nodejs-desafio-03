@@ -6,7 +6,7 @@ import {
   OrgWithSameEmailAlreadyExistsError,
 } from "../errors"
 
-export class RegisterUseCase {
+export class RegisterOrgUseCase {
   constructor(private orgsRepository: ORGsRepository) {}
 
   async execute(data: Prisma.OrgCreateInput) {

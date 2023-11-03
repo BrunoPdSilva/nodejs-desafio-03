@@ -4,7 +4,7 @@ import { compare } from "bcryptjs"
 
 type AuthenticateParams = { email: string; password: string }
 
-export class AuthenticateUseCase {
+export class AuthenticateOrgUseCase {
   constructor(private orgsRepository: ORGsRepository) {}
 
   async execute({ email, password }: AuthenticateParams) {

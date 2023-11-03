@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from "vitest"
 import { InMemoryORGsRepository } from "@/repositories/in-memory.ts/in-memory-orgs-repository"
 import { ORGsRepository } from "@/repositories/orgs-repository"
-import { RegisterUseCase } from "./register-use-case"
+import { RegisterOrgUseCase } from "./register-org-use-case"
 import {
   OrgWithSameEmailAlreadyExistsError,
   OrgWithSameNameAlreadyExistsError,
@@ -9,11 +9,11 @@ import {
 
 describe("Register ORG - [Unit]", () => {
   let orgsRepository: ORGsRepository
-  let useCase: RegisterUseCase
+  let useCase: RegisterOrgUseCase
 
   beforeEach(() => {
     orgsRepository = new InMemoryORGsRepository()
-    useCase = new RegisterUseCase(orgsRepository)
+    useCase = new RegisterOrgUseCase(orgsRepository)
   })
 
   it("should be able to register an ORG", async () => {
