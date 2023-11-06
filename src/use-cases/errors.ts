@@ -13,13 +13,13 @@ export class OrgAlreadyExistsError extends Error {
 
 export class OrgWithSameNameAlreadyExistsError extends Error {
   constructor() {
-    super("Uma organização com esse nome já existe.")
+    super("Uma organização com o mesmo nome já está cadastrada.")
   }
 }
 
 export class OrgWithSameEmailAlreadyExistsError extends Error {
   constructor() {
-    super("Uma organização com esse email já existe.")
+    super("Uma organização com o mesmo email já está cadastrada.")
   }
 }
 
