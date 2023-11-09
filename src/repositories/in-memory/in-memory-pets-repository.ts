@@ -1,5 +1,5 @@
 import { Pet, Prisma } from "@prisma/client"
-import { PetsRepository } from "../pets-repository"
+import { PetFeatures, PetsRepository } from "../pets-repository"
 import { randomUUID } from "node:crypto"
 
 export class InMemoryPetsRepository implements PetsRepository {
@@ -27,5 +27,21 @@ export class InMemoryPetsRepository implements PetsRepository {
   async fetchPetsAvailableOnCity(city: string): Promise<Pet[]> {
     const pets = this.pets.filter(pet => pet.org.city === city)
     return pets
+  }
+
+  async fetchPetsByFeature(features: PetFeatures) {
+    const filteredPets: Pet[] = this.pets.filter(pet => {
+      for (const key in features) {
+        if (
+          features[key] !== undefined &&
+          pet[key as keyof Pet] !== features[key]
+        ) {
+          return false
+        }
+      }
+      return true
+    })
+
+    return filteredPets
   }
 }

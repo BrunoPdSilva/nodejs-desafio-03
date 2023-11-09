@@ -1,5 +1,5 @@
 import { Pet, Prisma } from "@prisma/client"
-import { PetsRepository } from "../pets-repository"
+import { PetFeatures, PetsRepository } from "../pets-repository"
 import { prisma } from "@/lib/prisma"
 
 export class PrismaPetsRepository implements PetsRepository {
@@ -48,6 +48,17 @@ export class PrismaPetsRepository implements PetsRepository {
             street: true,
           },
         },
+      },
+    })
+
+    return pets
+  }
+
+  async fetchPetsByFeature(features: PetFeatures) {
+    const keys = Object.keys(features)
+    const pets = await prisma.pet.findMany({
+      where: {
+        OR: keys.map(key => ({ [key]: features[key] })),
       },
     })
 
