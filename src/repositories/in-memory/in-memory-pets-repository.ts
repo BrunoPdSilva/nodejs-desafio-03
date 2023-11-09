@@ -23,4 +23,9 @@ export class InMemoryPetsRepository implements PetsRepository {
     const pet = this.pets.find(pet => pet.id === petId)
     return pet ?? null
   }
+
+  async fetchPetsAvailableOnCity(city: string): Promise<Pet[]> {
+    const pets = this.pets.filter(pet => pet.org.city === city)
+    return pets
+  }
 }

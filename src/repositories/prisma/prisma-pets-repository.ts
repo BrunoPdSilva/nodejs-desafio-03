@@ -9,7 +9,48 @@ export class PrismaPetsRepository implements PetsRepository {
   }
 
   async findPetById(petId: string): Promise<Pet | null> {
-    const pet = await prisma.pet.findFirst({ where: { id: petId } })
+    const pet = await prisma.pet.findFirst({
+      where: { id: petId },
+      include: {
+        org: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            contact: true,
+            representative: true,
+            state: true,
+            city: true,
+            zipcode: true,
+            street: true,
+          },
+        },
+      },
+    })
+
     return pet
+  }
+
+  async fetchPetsAvailableOnCity(city: string): Promise<Pet[]> {
+    const pets = await prisma.pet.findMany({
+      where: { org: { city } },
+      include: {
+        org: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            contact: true,
+            representative: true,
+            state: true,
+            city: true,
+            zipcode: true,
+            street: true,
+          },
+        },
+      },
+    })
+
+    return pets
   }
 }

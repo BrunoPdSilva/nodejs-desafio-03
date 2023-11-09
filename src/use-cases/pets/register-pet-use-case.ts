@@ -1,6 +1,5 @@
 import { ORGsRepository } from "@/repositories/orgs-repository"
 import { PetsRepository } from "@/repositories/pets-repository"
-import { Prisma } from "@prisma/client"
 import { OrgNotFoundError } from "../errors"
 
 type RegisterParams = {

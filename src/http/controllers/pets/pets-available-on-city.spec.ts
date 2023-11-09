@@ -2,7 +2,7 @@ import { describe, it, expect, beforeAll, afterAll } from "vitest"
 import { app } from "@/app"
 import supertest from "supertest"
 
-describe("Pet Details [E2E]", () => {
+describe("Pets Available on City [E2E]", () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -11,7 +11,7 @@ describe("Pet Details [E2E]", () => {
     await app.close()
   })
 
-  it("should be able to see details of an pet.", async () => {
+  it("Should be able to fetch a list of pets available on City", async () => {
     await supertest(app.server)
       .post("/register")
       .send({
@@ -37,7 +37,7 @@ describe("Pet Details [E2E]", () => {
 
     const { token } = authResponse.body
 
-    const registerPetResponse = await supertest(app.server)
+    await supertest(app.server)
       .post("/pets/register")
       .send({
         name: "JuJu",
@@ -52,23 +52,27 @@ describe("Pet Details [E2E]", () => {
       .set("Authorization", `Bearer ${token}`)
       .expect(201)
 
-    const { id } = registerPetResponse.body.pet
-
-    const response = await supertest(app.server)
-      .get(`/pets/${id}`)
-      .expect(200)
-
-    expect(response.body.pet).toEqual(
-      expect.objectContaining({
-        name: "JuJu",
+    await supertest(app.server)
+      .post("/pets/register")
+      .send({
+        name: "Paçoca",
         age: "3 anos",
-        description: "Uma gatinha muito amorosa e companheira",
+        description: "Um gato muito carinhoso e comportado",
         independence: "Baixa",
         energy: 4,
-        size: "Pequena",
+        size: "Pequeno",
         space_required: "Médio",
-        requirements: ["Muita comida e amor"],
+        requirements: ["Muita comida e amor", "Muito carinho"],
       })
-    )
+      .set("Authorization", `Bearer ${token}`)
+      .expect(201)
+
+    const response = await supertest(app.server)
+      .get("/pets")
+      .query({ city: "Sorocaba" })
+      .send()
+      .expect(200)
+
+    expect(response.body.pets).toHaveLength(2)
   })
 })

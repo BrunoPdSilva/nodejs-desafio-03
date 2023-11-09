@@ -8,7 +8,7 @@
 
 [X] Deve ser possível visualizar detalhes de um pet para adoção
 
-[-] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade
+[X] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade
 
 [-] Deve ser possível filtrar pets por suas características
 
@@ -20,9 +20,9 @@
 
 [X] O usuário que quer adotar, entrará em contato com a ORG via WhatsApp
 
-[-] Para listar os pets, obrigatoriamente precisamos informar a cidade
+[X] Para listar os pets, obrigatoriamente precisamos informar a cidade
 
-[-] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
+[X] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
 
 [-] Todos os filtros, além da cidade, são opcionais
 

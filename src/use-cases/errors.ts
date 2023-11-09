@@ -31,9 +31,16 @@ export class InvalidCredentialsError extends Error {
 
 // -> Pets
 
+export class PetsNotFoundError extends Error {
+  constructor() {
+    super(
+      "Desculpe, não encontramos nenhum pet disponível na cidade especificada."
+    )
+  }
+}
+
 export class PetNotFoundError extends Error {
   constructor() {
     super("Desculpe, não encontramos nenhum pet com esse ID.")
   }
 }
-
